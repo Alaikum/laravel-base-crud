@@ -51,8 +51,13 @@
         margin: 0 auto;
 
     }
+    p{
+        font-size: 1.5rem;
+    }
     input{
         width: 750px;
+        font-size: 1.5rem;
+     
     }
     .bottone{
         width: 250px;

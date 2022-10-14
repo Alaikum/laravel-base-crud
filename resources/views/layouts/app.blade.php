@@ -21,10 +21,12 @@
 <style>
     *{
         background-color: bisque;
+        text-align: center;
     }
     ul{
         list-style: none;
         display: flex;
+        justify-content: center;
         gap: 1rem;
     }
     li{
@@ -34,5 +36,8 @@
     a{
         text-decoration: none;
         color: currentColor;
+    }
+    img{
+        max-width: 100%;
     }
 </style>

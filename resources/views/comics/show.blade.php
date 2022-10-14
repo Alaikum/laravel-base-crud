@@ -7,7 +7,7 @@
             <h2>{{ $comic->title }} </h2>
             <p>Data di Uscita:{{ $comic->sale_date }}</p>
             <p>Prezzo: {{ $comic->price }}</p>
-            <img src="{{ $comic->thumb }}" alt="">
+            <img src="{{ $comic->thumb }}" alt="Foto non Caricata">
             <p><strong>Descrizione:</strong> {{$comic->description}}</p>
            <p>Series: {{$comic->series}} & Type: {{$comic->type}}</p>
         </div>
