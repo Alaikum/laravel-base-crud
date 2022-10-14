@@ -37,7 +37,9 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $params = $request->all();
+        $d=Comic::create($params);
+        return redirect()->route('comics.show',$d);
     }
 
     /**
