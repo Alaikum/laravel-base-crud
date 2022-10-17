@@ -41,7 +41,7 @@ class ComicController extends Controller
             'title'=>'required|max:255',
             'description'=>'required',
             'thumb'=>'nullable|max:255|url',
-            'price'=>'required|max:255|numeric',
+            'price'=>'required|max:999|numeric',
             'series'=>'required|max:255|',
             'sale_date'=>'required|date_format:Y-m-d',
             'type'=>'required|max:255',
@@ -83,14 +83,14 @@ class ComicController extends Controller
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
+    
         $params=$request->validate([
             'title'=>'required|max:255',
             'description'=>'required',
             'thumb'=>'nullable|max:255|url',
-            'price'=>'required|max:255|numeric',
+            'price'=>'required|max:999|numeric',
             'series'=>'required|max:255|',
             'sale_date'=>'required|date_format:Y-m-d',
             'type'=>'required|max:255',
@@ -107,6 +107,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

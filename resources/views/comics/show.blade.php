@@ -11,6 +11,12 @@
             <p><strong>Descrizione:</strong> {{$comic->description}}</p>
            <p>Series: {{$comic->series}} & Type: {{$comic->type}}</p>
            <p class="card__a"><a href="{{route('comics.edit', $comic)}}">Modifica</a></p>
+           <form action="{{route('comics.destroy', $comic)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Elimina">
+            
+           </form>
         </div>
     </div>
 @endsection

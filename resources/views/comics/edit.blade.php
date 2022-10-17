@@ -47,7 +47,7 @@
                 <label for="sale-date">Data di pubblicazione</label>
                 <input type="text" name='sale_date' id='sale_date'
                     style=" @error('sale_date') border-color:red @enderror" value="{{ old('sale_date',$comic->sale_date) }}"
-                    placeholder="2020/01/31">
+                    placeholder="2020-01-31">
                 @error('sale_date')
                 <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
             @enderror

@@ -39,14 +39,14 @@
                 <input type="text" name='price' id='price' style=" @error('price') border-color:red @enderror"
                     value="{{ old('price') }}" placeholder="Inserisci il prezzo a cui vuoi venderlo">
                 @error('price')
-                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }} <p>Se vuoi vendere qualcosa che vale più di 999€ contattaci</p></div>
             @enderror
             </p>
             <p>
                 <label for="sale-date">Data di pubblicazione</label>
                 <input type="text" name='sale_date' id='sale_date'
                     style=" @error('sale_date') border-color:red @enderror" value="{{ old('sale_date') }}"
-                    placeholder="2020/01/31">
+                    placeholder="2020-01-31">
                 @error('sale_date')
                 <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
             @enderror
