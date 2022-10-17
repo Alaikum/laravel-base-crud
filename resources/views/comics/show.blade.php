@@ -10,6 +10,7 @@
             <img src="{{ $comic->thumb }}" alt="Foto non Caricata">
             <p><strong>Descrizione:</strong> {{$comic->description}}</p>
            <p>Series: {{$comic->series}} & Type: {{$comic->type}}</p>
+           <p class="card__a"><a href="{{route('comics.edit', $comic)}}">Modifica</a></p>
         </div>
     </div>
 @endsection
@@ -23,6 +24,10 @@
         margin: 0 auto;
         text-align: center
         
+    }
+    .card__a{
+        color: rebeccapurple;
+      text-transform: uppercase;
     }
    
 </style>

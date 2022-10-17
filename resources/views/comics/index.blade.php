@@ -11,6 +11,13 @@
                 <p>Prezzo: {{ $comic->price }}</p>
                 <img src="{{ $comic->thumb }}" alt="">
                 <p class="card__a"><a href="{{ route('comics.show', $comic) }}">Ulteriori Dettagli</a></p>
+                <p class="card__a"><a href="{{route('comics.edit', $comic)}}">Modifica</a></p>
+                <form action="{{route('comics.destroy', $comic)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Elimina">
+                    
+                   </form>
             </div>
         @endforeach
 
