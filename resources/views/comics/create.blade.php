@@ -5,61 +5,106 @@
         <h1>Vendi il tuo Fumetto</h1>
     </div>
     <div class="container">
-        <form action="{{route('comics.store')}}" method="POST">
+        <form action="{{ route('comics.store') }}" method="POST">
             @csrf
             <p>
                 <label for="title">Titolo</label>
-                <input type="text" name='title' id='title' placeholder="Titolo del Fumetto">
+                {{-- BORDO ROSSO CON ERORRE  E VALUE CHE NON SI PERDE CON L'ERRORE --}}
+                <input type="text" name='title' id='title'style=" @error('title') border-color:red @enderror"
+                    value="{{ old('title') }}" placeholder="Titolo del Fumetto">
+                {{-- MESSAGGIO DI ERRORE VICINO ALL INPUT CHE GENERA ERRORE  --}}
+                @error('title')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="description">Descrizione</label>
-                <input type="text" name='description' id='description' placeholder="Descrizione del Fumetto">
+                <input type="text" name='description' id='description'
+                    style=" @error('description') border-color:red @enderror" value="{{ old('description') }}"
+                    placeholder="Descrizione del Fumetto">
+                @error('description')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="thumb">Link Alla Foto</label>
-                <input type="text" name='thumb' id='thumb' placeholder="Inserisci un link valido alla foto del fumetto">
+                <input type="text" name='thumb' id='thumb' style=" @error('thumb') border-color:red @enderror"
+                    value="{{ old('thumb') }}" placeholder="Inserisci un link valido alla foto del fumetto">
+                @error('thumb')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="price">Prezzo di Vendita €</label>
-                <input type="text" name='price' id='price' placeholder="Inserisci il prezzo a cui vuoi venderlo">
+                <input type="text" name='price' id='price' style=" @error('price') border-color:red @enderror"
+                    value="{{ old('price') }}" placeholder="Inserisci il prezzo a cui vuoi venderlo">
+                @error('price')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="sale-date">Data di pubblicazione</label>
-                <input type="text" name='sale_date' id='sale_date' placeholder="2020/01/31">
+                <input type="text" name='sale_date' id='sale_date'
+                    style=" @error('sale_date') border-color:red @enderror" value="{{ old('sale_date') }}"
+                    placeholder="2020/01/31">
+                @error('sale_date')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="series">Serie</label>
-                <input type="text" name='series' id='series' placeholder="Inserisci la Serie del fumetto">
+                <input type="text" name='series' id='series' style=" @error('series') border-color:red @enderror"
+                    value="{{ old('series') }}" placeholder="Inserisci la Serie del fumetto">
+                @error('series')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
             <p>
                 <label for="type">Tipo</label>
-                <input type="text" name='type' id='type' placeholder="Inserisci la tipologia del Fumetto">
+                <input type="text" name='type' id='type' style=" @error('type') border-color:red @enderror"
+                    value="{{ old('type') }}" placeholder="Inserisci la tipologia del Fumetto">
+                @error('type')
+                <div class="alert alert-danger" style="color: red; font-size:2rem;">{{ $message }}</div>
+            @enderror
             </p>
-<p>
-<input class="bottone" type="submit" value="Metti in vendita">
-</p>
+            <p>
+                <input class="bottone" type="submit" value="Metti in vendita">
+            </p>
 
         </form>
 
+        {{-- STAMPA L'ERRORE  --}}
+        {{-- @if ($errors->any())
+ <div class="alert alert-danger">
+     <ul>
+         @foreach ($errors->all() as $error)
+             <li>{{ $error }}</li>
+         @endforeach
+     </ul>
+ </div>
+@endif --}}
     </div>
 @endsection
 
 
 <style>
-    .container{
+    .container {
         text-align: center;
         margin: 0 auto;
 
     }
-    p{
+
+    p {
         font-size: 1.5rem;
     }
-    input{
+
+    input {
         width: 750px;
         font-size: 1.5rem;
-     
+
     }
-    .bottone{
+
+    .bottone {
         width: 250px;
         background-color: black;
         color: white;
